@@ -14,38 +14,7 @@ const SignUp = ({signUpOpen}:{signUpOpen?:any}) => {
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
-
-    setLoading(true);
-    const data = new FormData(e.currentTarget);
-    const value = Object.fromEntries(data.entries());
-    const finalData = { ...value };
-
-    fetch("/api/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(finalData),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        toast.success("Successfully registered");
-        setLoading(false);
-        router.push("/");
-      })
-      .catch((err) => {
-        toast.error(err.message);
-        setLoading(false);
-      });
-      setTimeout(() => {
-        signUpOpen(false);
-      }, 1200);
-      authDialog?.setIsUserRegistered(true);
-
-      setTimeout(() => {
-        authDialog?.setIsUserRegistered(false);
-      }, 1100);
-
+    return;
   };
 
   return (
