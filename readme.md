@@ -1,4 +1,4 @@
-# Resume - Free Next.js Resume Website Template
+# Sustainable - Free Next.js Website Template
 #### Preview
 
  - [Demo](https://themewagon.github.io/sustainable-nextjs/)
