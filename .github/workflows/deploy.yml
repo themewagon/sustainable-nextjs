@@ -36,7 +36,10 @@ jobs:
         run: npm run build
 
       - name: Create .nojekyll
-        run: touch out/.nojekyll
+        run: |
+          echo "" > out/.nojekyll
+          echo "Created .nojekyll file"
+          ls -la out/.nojekyll
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
