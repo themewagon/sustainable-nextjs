@@ -127,8 +127,13 @@
   }
 
   select {
-    @apply appearance-none bg-[url('/images/contact/dropdown.svg')] bg-no-repeat bg-[90%_50%];
+    @apply appearance-none bg-no-repeat bg-[90%_50%];
+    background-image: var(--dropdown-icon);
   }
+}
+
+.dp_backto_top > div::before {
+  background-image: var(--top-arrow-bg);
 }
 
 .blog-details hr {

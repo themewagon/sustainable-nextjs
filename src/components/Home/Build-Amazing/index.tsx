@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { cardData } from '../../../app/api/data'
+import { getImgPath } from '@/utils/imagePath'
 
 const BuildAmazing = ({ isSpace }: { isSpace: boolean }) => {
   return (
@@ -119,7 +120,7 @@ const BuildAmazing = ({ isSpace }: { isSpace: boolean }) => {
               <div className='mt-8'>
                 <Link href='/' className='btn inline-flex items-center gap-3'>
                   Get Started
-                  <i className="bg-[url('/images/build-amazing/right-arrow.svg')] bg-no-repeat bg-contain w-4 h-3 inline-block"></i>
+                  <i className="bg-no-repeat bg-contain w-4 h-3 inline-block" style={{ backgroundImage: `url(${getImgPath('/images/build-amazing/right-arrow.svg')})` }}></i>
                 </Link>
               </div>
             </div>
@@ -148,7 +149,7 @@ const BuildAmazing = ({ isSpace }: { isSpace: boolean }) => {
                       <i
                         className='bg-no-repeat bg-contain w-4 h-3 inline-block transform transition-transform duration-300 ease-in-out group-hover:translate-x-1'
                         style={{
-                          backgroundImage: `url('/images/build-amazing/right-arrow-blue.svg')`,
+                          backgroundImage: `url(${getImgPath('/images/build-amazing/right-arrow-blue.svg')})`,
                         }}></i>
                     </Link>
                   </div>

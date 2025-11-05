@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { getImgPath } from '@/utils/imagePath'
 
 const ContactForm = () => {
   return (
@@ -111,7 +112,7 @@ const ContactForm = () => {
             </div>
             <div className='sm:col-span-6 col-span-1'>
               <Image
-                src='/images/contact/contact.jpg'
+                src={getImgPath('/images/contact/contact.jpg')}
                 alt='Contact'
                 width={0}
                 height={0}

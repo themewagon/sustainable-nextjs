@@ -1,10 +1,11 @@
 "use client";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
+import { boxData } from "@/app/api/data";
+import { getImgPath } from "@/utils/imagePath";
 import Image from "next/image";
 import Link from "next/link";
-import { boxData } from "@/app/api/data";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
 
 const PortfolioSlider = () => {
   var settings = {
@@ -48,7 +49,7 @@ const PortfolioSlider = () => {
         Related Projects
       </h2>
       <Slider {...settings}>
-      {boxData.map((item, index) => (
+        {boxData.map((item, index) => (
           <div key={index} className="px-3">
             <div className="relative rounded-14 overflow-hidden">
               <Image
@@ -70,7 +71,14 @@ const PortfolioSlider = () => {
                   className="flex items-center gap-3 text-white sm:text-base text-sm font-normal group-hover:opacity-60"
                 >
                   Learn More
-                  <i className="bg-[url('/images/build-amazing/right-arrow.svg')] bg-no-repeat bg-contain w-4 h-3 inline-block transform transition-transform duration-300 ease-in-out group-hover:translate-x-1"></i>
+                  <i
+                    className="bg-no-repeat bg-contain w-4 h-3 inline-block transform transition-transform duration-300 ease-in-out group-hover:translate-x-1"
+                    style={{
+                      backgroundImage: `url(${getImgPath(
+                        "/images/build-amazing/right-arrow.svg"
+                      )})`,
+                    }}
+                  ></i>
                 </Link>
               </div>
             </div>

@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import { getImgPath } from "@/utils/imagePath";
 
 export default function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false);
@@ -35,7 +36,10 @@ export default function ScrollToTop() {
       onClick={scrollToTop}
       aria-hidden={!isVisible} // Optional: for accessibility
     >
-      <div className="before:content-[''] before:absolute before:w-8 before:h-8 before:bg-[url('/images/footer/top-arrow.svg')] before:bg-no-repeat before:bg-cover"></div>
+      <div 
+        className="before:content-[''] before:absolute before:w-8 before:h-8 before:bg-no-repeat before:bg-cover"
+        style={{ '--top-arrow-bg': `url(${getImgPath('/images/footer/top-arrow.svg')})` } as React.CSSProperties & { '--top-arrow-bg': string }}
+      ></div>
     </div>
   );
 }

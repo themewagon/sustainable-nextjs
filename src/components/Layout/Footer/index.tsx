@@ -1,4 +1,5 @@
 "use client";
+import { getImgPath } from "@/utils/imagePath";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -15,18 +16,21 @@ const Footer: FC = () => {
   const pathname = usePathname();
   console.log(pathname); // For debugging
 
+  const bgImagePath = getImgPath("/images/footer/ftr-bg.png");
+
   return (
     <footer
-      className={`relative dark:bg-darkmode bg-[url('/images/footer/ftr-bg.png')] bg-cover bg-no-repeat w-full h-full ${
+      className={`relative dark:bg-darkmode bg-cover bg-no-repeat w-full h-full ${
         pathname === "/" ? "pt-72 z-3" : "pt-32"
       }`}
+      style={{ backgroundImage: `url(${bgImagePath})` }}
     >
       <div className="bg-secondary md:pb-20 pb-8">
         <div className="container">
           <div className="flex items-center justify-between pb-16 border-b border-dark_border border-solid">
             <Link href="/">
               <Image
-                src="/images/footer/ftr-logo.svg"
+                src={getImgPath("/images/footer/ftr-logo.svg")}
                 alt="Company logo"
                 width={160}
                 height={50}
@@ -120,7 +124,14 @@ const Footer: FC = () => {
                   className="absolute bg-transparent right-0 p-4"
                   aria-label="Submit"
                 >
-                  <i className="bg-[url('/images/footer/msg-enter.svg')] bg-contain w-5 h-5 inline-block"></i>
+                  <i
+                    className="bg-contain w-5 h-5 inline-block"
+                    style={{
+                      backgroundImage: `url(${getImgPath(
+                        "/images/footer/msg-enter.svg"
+                      )})`,
+                    }}
+                  ></i>
                 </button>
               </div>
               <p className="text-base font-normal text-SlateBlue max-w-310 pt-3">

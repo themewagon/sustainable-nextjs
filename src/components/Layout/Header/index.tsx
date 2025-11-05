@@ -14,6 +14,7 @@ import { SuccessfullLogin } from '@/components/Auth/AuthDialog/SuccessfulLogin'
 import { FailedLogin } from '@/components/Auth/AuthDialog/FailedLogin'
 import { UserRegistered } from '@/components/Auth/AuthDialog/UserRegistered'
 import AuthDialogContext from '@/app/context/AuthDialogContext'
+import { getImgPath } from '@/utils/imagePath'
 
 const Header: React.FC = () => {
   const pathUrl = usePathname()
@@ -85,7 +86,7 @@ const Header: React.FC = () => {
         <div className='container mx-auto flex items-center justify-between p-6'>
           <Link href='/'>
             <Image
-              src='/images/logo/logo.svg'
+              src={getImgPath('/images/logo/logo.svg')}
               alt='logo'
               width={160}
               height={50}

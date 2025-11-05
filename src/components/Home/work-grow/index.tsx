@@ -2,6 +2,7 @@ import Link from 'next/link'
 import React from 'react'
 import Image from 'next/image'
 import { boxData } from '../../../app/api/data'
+import { getImgPath } from '@/utils/imagePath'
 
 const WorkGrow = () => {
   return (
@@ -20,7 +21,7 @@ const WorkGrow = () => {
               <div className=''>
                 <Link href='/' className='btn inline-flex items-center gap-3'>
                   Get Started
-                  <i className="bg-[url('/images/build-amazing/right-arrow.svg')] bg-no-repeat bg-contain w-4 h-3 inline-block"></i>
+                  <i className="bg-no-repeat bg-contain w-4 h-3 inline-block" style={{ backgroundImage: `url(${getImgPath('/images/build-amazing/right-arrow.svg')})` }}></i>
                 </Link>
               </div>
             </div>
@@ -29,9 +30,10 @@ const WorkGrow = () => {
                 key={index}
                 className={
                   index === 1
-                    ? "xl:-mt-44 -mt-0 relative before:absolute before:content-[''] before:bg-[url('/images/work-grow/work-line.png')] before:bg-no-repeat before:bg-contain before:w-183 before:h-20 before:bottom-36 before:-left-24 lg:before:inline-block before:hidden"
+                    ? "xl:-mt-44 -mt-0 relative"
                     : ''
                 }
+                style={index === 1 ? { '--work-line-bg': `url(${getImgPath('/images/work-grow/work-line.png')})` } as React.CSSProperties : undefined}
                 data-aos='fade-up'
                 data-aos-delay={`${(index + 1) * 200}`}
                 data-aos-duration='1000'>
@@ -55,7 +57,7 @@ const WorkGrow = () => {
                       href={`/portfolio/${item.slug}`}
                       className='flex items-center gap-3 text-white sm:text-base text-sm font-normal group-hover:opacity-60'>
                       Learn More
-                      <i className="bg-[url('/images/build-amazing/right-arrow.svg')] bg-no-repeat bg-contain w-4 h-3 inline-block transform transition-transform duration-300 ease-in-out group-hover:translate-x-1"></i>
+                      <i className="bg-no-repeat bg-contain w-4 h-3 inline-block transform transition-transform duration-300 ease-in-out group-hover:translate-x-1" style={{ backgroundImage: `url(${getImgPath('/images/build-amazing/right-arrow.svg')})` }}></i>
                     </Link>
                   </div>
                 </div>

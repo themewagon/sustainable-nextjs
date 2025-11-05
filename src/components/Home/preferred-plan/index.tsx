@@ -2,6 +2,7 @@
 import { useReducer, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { getImgPath } from '@/utils/imagePath'
 
 const Preferred = () => {
   const [activeTab, setActiveTab] = useState('monthly')
@@ -127,7 +128,7 @@ const Preferred = () => {
                 <div className='relative h-full'>
                   <div className='h-full bg-primary rounded-2xl overflow-hidden'>
                     <img
-                      src='/images/price-plan/plan-image.png'
+                      src={getImgPath('/images/price-plan/plan-image.png')}
                       alt=''
                       className='h-full'
                     />

@@ -2,6 +2,7 @@
 import { boxData } from "@/app/api/data";
 import PortfolioSlider from "@/components/Portfolio_detail/PortfolioSlider";
 import HeroSub from "@/components/SharedComponent/HeroSub";
+import { getImgPath } from "@/utils/imagePath";
 import Image from "next/image";
 
 interface PortfolioContentProps {
@@ -81,7 +82,7 @@ export default function PortfolioContent({ slug }: PortfolioContentProps) {
           <div className="md:pt-24 pt-10">
             <div className="flex md:flex-nowrap flex-wrap items-center gap-10">
               <Image
-                src="/images/portfolio-details/font-1.jpg"
+                src={getImgPath("/images/portfolio-details/font-1.jpg")}
                 alt="Portfolio"
                 width={0}
                 height={0}
@@ -91,7 +92,7 @@ export default function PortfolioContent({ slug }: PortfolioContentProps) {
                 className="rounded-lg"
               />
               <Image
-                src="/images/portfolio-details/font-2.jpg"
+                src={getImgPath("/images/portfolio-details/font-2.jpg")}
                 alt="Portfolio"
                 width={0}
                 height={0}
@@ -114,7 +115,7 @@ export default function PortfolioContent({ slug }: PortfolioContentProps) {
       <div className="dark:bg-darkmode grid lg:grid-cols-2 grid-cols-1 md:gap-20 gap-4 items-center border-t border-solid border-AliceBlue dark:border-dark_border lg:px-0 px-7">
         <div>
           <Image
-            src="/images/portfolio-details/work-process.png"
+            src={getImgPath("/images/portfolio-details/work-process.png")}
             alt="Portfolio"
             width={0}
             height={0}
@@ -186,7 +187,7 @@ export default function PortfolioContent({ slug }: PortfolioContentProps) {
                   Client Testimonial
                 </h2>
                 <Image
-                  src="/images/portfolio-details/quote.png"
+                  src={getImgPath("/images/portfolio-details/quote.png")}
                   alt="Portfolio"
                   width={0}
                   height={0}
@@ -212,7 +213,9 @@ export default function PortfolioContent({ slug }: PortfolioContentProps) {
             </div>
             <div>
               <Image
-                src="/images/portfolio-details/1a4f4281fd2cd22b7d1785419c5813de.png"
+                src={getImgPath(
+                  "/images/portfolio-details/1a4f4281fd2cd22b7d1785419c5813de.png"
+                )}
                 alt="Portfolio"
                 width={0}
                 height={0}

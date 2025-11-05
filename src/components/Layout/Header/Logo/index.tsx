@@ -1,12 +1,13 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { getImgPath } from '@/utils/imagePath';
 
 const Logo: React.FC = () => {
 
   return (
     <Link href="/" className='sm:max-w-56 max-w-44'>
       <Image
-        src="/images/logo/logo-dark.svg"
+        src={getImgPath("/images/logo/logo-dark.svg")}
         alt="logo"
         width={160}
         height={50}
@@ -15,7 +16,7 @@ const Logo: React.FC = () => {
         className='dark:hidden'
       />
       <Image
-        src="/images/logo/logo.svg"
+        src={getImgPath("/images/logo/logo.svg")}
         alt="logo"
         width={160}
         height={50}

@@ -1,16 +1,18 @@
+import { getImgPath } from '@/utils/imagePath';
+
 export const count = [
     {
-        icon: "/images/counter/star.svg",
+        icon: getImgPath("/images/counter/star.svg"),
         value: "4.86",
         description: "Out of 5 stars from 3896 reviews on google platform",
     },
     {
-        icon: "/images/counter/admin.svg",
+        icon: getImgPath("/images/counter/admin.svg"),
         value: "364",
         description: "Client testimonials received in the year 2021",
     },
     {
-        icon: "/images/counter/bag.svg",
+        icon: getImgPath("/images/counter/bag.svg"),
         value: "45M+",
         description: "Revenue generated through new projects & marketing",
     },
@@ -18,25 +20,25 @@ export const count = [
 
 export const cardData = [
     {
-      iconUrl: '/images/build-amazing/beautiful-design.svg',
+      iconUrl: getImgPath('/images/build-amazing/beautiful-design.svg'),
       title: 'Beautiful designs premade',
       description: 'Lorem ipsum dolor sit amet, consect etur adipiscing',
       link: '/',
     },
     {
-      iconUrl: '/images/build-amazing/coded.svg',
+      iconUrl: getImgPath('/images/build-amazing/coded.svg'),
       title: 'Coded with much care & notes',
       description: 'Lorem ipsum dolor sit amet, consect etur adipiscing',
       link: '/',
     },
     {
-      iconUrl: '/images/build-amazing/amazing.svg',
+      iconUrl: getImgPath('/images/build-amazing/amazing.svg'),
       title: 'Amazing demos included',
       description: 'Lorem ipsum dolor sit amet, consect etur adipiscing',
       link: '/',
     },
     {
-      iconUrl: '/images/build-amazing/beautiful-design.svg',
+      iconUrl: getImgPath('/images/build-amazing/beautiful-design.svg'),
       title: 'Beautiful designs premade',
       description: 'Lorem ipsum dolor sit amet, consect etur adipiscing',
       link: '/',
@@ -45,31 +47,31 @@ export const cardData = [
 
   export const boxData = [
     {
-      src: '/images/work-grow/mobile-application.jpg',
+      src: getImgPath('/images/work-grow/mobile-application.jpg'),
       alt: 'work-grow',
       title: 'Apex Mobile Application Development',
       slug: "portfolio-1"
     },
     {
-      src: '/images/work-grow/weby-dashboard-design.jpg',
+      src: getImgPath('/images/work-grow/weby-dashboard-design.jpg'),
       alt: 'work-grow',
       title: 'Weby Dashboard Design',
       slug: "portfolio-2"
     },
     {
-      src: '/images/work-grow/frontend-development.jpg',
+      src: getImgPath('/images/work-grow/frontend-development.jpg'),
       alt: 'work-grow',
       title: 'Frontend Development',
       slug: "portfolio-3"
     },
     {
-      src: '/images/work-grow/illustration.jpg',
+      src: getImgPath('/images/work-grow/illustration.jpg'),
       alt: 'work-grow',
       title: 'Lying on arrow concept illustration',
       slug: "portfolio-4"
     },
     {
-      src: '/images/work-grow/financial-image.jpg',
+      src: getImgPath('/images/work-grow/financial-image.jpg'),
       alt: 'work-grow',
       title: 'Financial data concept illustration',
       slug: "portfolio-5"

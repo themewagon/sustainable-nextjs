@@ -1,9 +1,10 @@
 import Image from 'next/image'
+import { getImgPath } from '@/utils/imagePath'
 
 const Hero = () => {
   return (
     <>
-      <section className="relative overflow-x-clip top-0 bg-primary circalanimat before:content-[''] before:absolute before:bg-[url('/images/work-grow/work-line.png')] before:bg-no-repeat before:bg-contain before:w-44 before:h-20 before:bottom-40 lg:before:inline-block before:hidden">
+      <section className="relative overflow-x-clip top-0 bg-primary circalanimat" style={{ '--work-line-bg': `url(${getImgPath('/images/work-grow/work-line.png')})` } as React.CSSProperties}>
         <div className='banner-shap it-wrapper'>
           <div className='container py-20'>
             <div className='flex flex-wrap'>
@@ -67,7 +68,7 @@ const Hero = () => {
                 <div className='flex items-center gap-6'>
                   <div>
                     <Image
-                      src='/images/hero/wise_white.png'
+                      src={getImgPath('/images/hero/wise_white.png')}
                       alt='logo'
                       width={0}
                       height={0}
@@ -79,7 +80,7 @@ const Hero = () => {
                   </div>
                   <div>
                     <Image
-                      src='/images/hero/google_white.png'
+                      src={getImgPath('/images/hero/google_white.png')}
                       alt='logo'
                       width={0}
                       height={0}
@@ -91,7 +92,7 @@ const Hero = () => {
                   </div>
                   <div>
                     <Image
-                      src='/images/hero/pay_white.png'
+                      src={getImgPath('/images/hero/pay_white.png')}
                       alt='logo'
                       width={0}
                       height={0}
@@ -103,7 +104,7 @@ const Hero = () => {
                   </div>
                   <div>
                     <Image
-                      src='/images/hero/stripe_white.png'
+                      src={getImgPath('/images/hero/stripe_white.png')}
                       alt='logo'
                       width={0}
                       height={0}
@@ -116,7 +117,11 @@ const Hero = () => {
                 </div>
               </div>
               <div
-                className="md:w-1/4 w-full md:-ml-16 -ml-0 relative z-1 before:absolute before:content-[''] before:bg-[url('/images/hero/grid-line.png')] before:bg-no-repeat before:w-24 before:h-24 before:-top-32 before:-right-16 lg:before:inline-block before:hidden after:content-[''] after:absolute after:bg-[url('/images/hero/circal.png')] after:bg-no-repeat after:w-[2.625rem] after:h-[2.625rem] after:top-10 after:-left-[8.25rem] xl:after:inline-block after:hidden"
+                className="md:w-1/4 w-full md:-ml-16 -ml-0 relative z-1"
+                style={{ 
+                  '--grid-line-bg': `url(${getImgPath('/images/hero/grid-line.png')})`,
+                  '--circal-bg': `url(${getImgPath('/images/hero/circal.png')})`
+                } as React.CSSProperties}
                 data-aos='fade-left'
                 data-aos-delay='200'
                 data-aos-duration='1000'>
