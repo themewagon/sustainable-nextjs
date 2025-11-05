@@ -37,9 +37,15 @@ jobs:
 
       - name: Create .nojekyll
         run: |
-          echo "" > out/.nojekyll
+          # Create empty .nojekyll file to disable Jekyll processing
+          > out/.nojekyll
           echo "Created .nojekyll file"
           ls -la out/.nojekyll
+          test -f out/.nojekyll && echo "✓ .nojekyll file exists" || echo "✗ .nojekyll file missing"
+          # Verify _next directory exists
+          test -d out/_next && echo "✓ _next directory exists" || echo "✗ _next directory missing"
+          # Verify CSS files exist
+          test -d out/_next/static/css && echo "✓ CSS directory exists" || echo "✗ CSS directory missing"
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
