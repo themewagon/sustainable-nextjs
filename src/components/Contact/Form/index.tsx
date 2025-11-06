@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -104,7 +106,8 @@ const ContactForm = () => {
                   <Link
                     href='#'
                     className='bg-primary rounded-lg text-white py-4 px-8 mt-4 inline-block hover:bg-blue-700'
-                    type='submit'>
+                    type='submit'
+                    onClick={(e) => e.preventDefault()}>
                     Make an appointment
                   </Link>
                 </div>

@@ -152,7 +152,7 @@ export default async function Post({ params }: any) {
         </div>
       </section>
       <div className='bg-LightSoftBlue dark:bg-darklight! lg:py-40 py-16 lg:pb-40 pb-28 -mb-28'>
-        <Blog />
+        <Blog posts={posts.slice(0, 3)} />
       </div>
     </>
   )

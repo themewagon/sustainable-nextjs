@@ -101,7 +101,9 @@ const Footer: FC = () => {
                         key={item.name}
                         className="text-base font-normal text-SlateBlue leading-8 hover:text-white"
                       >
-                        <Link href={item.href}>{item.name}</Link>
+                        <Link href={"#"} onClick={(e) => e.preventDefault()}>
+                          {item.name}
+                        </Link>
                       </li>
                     ))}
                   </ul>

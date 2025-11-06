@@ -1,13 +1,12 @@
 "use client";
+import AuthDialogContext from "@/app/context/AuthDialogContext";
+import Loader from "@/components/Common/Loader";
+import Logo from "@/components/Layout/Header/Logo";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import toast from "react-hot-toast";
-import SocialSignUp from "../SocialSignUp";
-import Logo from "@/components/Layout/Header/Logo"
 import { useContext, useState } from "react";
-import Loader from "@/components/Common/Loader";
-import AuthDialogContext from "@/app/context/AuthDialogContext";
-const SignUp = ({signUpOpen}:{signUpOpen?:any}) => {
+import SocialSignUp from "../SocialSignUp";
+const SignUp = ({ signUpOpen }: { signUpOpen?: any }) => {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const authDialog = useContext(AuthDialogContext);
@@ -72,11 +71,19 @@ const SignUp = ({signUpOpen}:{signUpOpen?:any}) => {
 
       <p className="text-body-secondary mb-4 text-base">
         By creating an account you are agree with our{" "}
-        <a href="/#" className="text-primary hover:underline">
+        <a
+          href="#"
+          onClick={(e) => e.preventDefault()}
+          className="text-primary hover:underline"
+        >
           Privacy
         </a>{" "}
         and{" "}
-        <a href="/#" className="text-primary hover:underline">
+        <a
+          href="#"
+          onClick={(e) => e.preventDefault()}
+          className="text-primary hover:underline"
+        >
           Policy
         </a>
       </p>

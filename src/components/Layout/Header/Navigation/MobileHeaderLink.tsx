@@ -1,3 +1,5 @@
+'use client'
+
 import { useState } from 'react';
 import Link from 'next/link';
 import { HeaderItem } from '../../../../types/menu';
@@ -16,7 +18,14 @@ const MobileHeaderLink: React.FC<{ item: HeaderItem }> = ({ item }) => {
     <div className="relative w-full">
       <Link
       href={item.href}
-        onClick={item.submenu ? handleToggle : undefined}
+        onClick={(e) => {
+          if (item.href === '#') {
+            e.preventDefault();
+          }
+          if (item.submenu) {
+            handleToggle();
+          }
+        }}
         className={`flex items-center justify-between w-full py-2 px-3 rounded-md text-black dark:text-white focus:outline-hidden ${path == item.href ? 'bg-primary text-white! dark:bg-primary dark:text-white' : null} ${path.startsWith(`/${item.label.toLowerCase()}`) ? "bg-primary text-white! dark:bg-primary dark:text-white" : null}`}
       >
         {item.label}

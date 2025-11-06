@@ -31,6 +31,7 @@ const ContactInfo = () => {
                   <Link
                     href="#"
                     className="text-primary text-lg font-medium flex items-center gap-3 group hover:text-secondary dark:hover:text-white"
+                    onClick={(e) => e.preventDefault()}
                   >
                     Leave a message
                     <i
@@ -83,6 +84,7 @@ const ContactInfo = () => {
                   <Link
                     href="#"
                     className="text-primary text-lg font-medium flex items-center gap-3 group hover:text-secondary dark:hover:text-white"
+                    onClick={(e) => e.preventDefault()}
                   >
                     Send an application
                     <i

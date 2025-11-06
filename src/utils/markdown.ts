@@ -1,6 +1,7 @@
 import fs from "fs";
 import matter from "gray-matter";
 import { join } from "path";
+import { getImgPath } from "./imagePath";
 
 const postsDirectory = join(process.cwd(), "markdown/Blog");
 
@@ -8,7 +9,7 @@ export function getPostSlugs() {
   return fs.readdirSync(postsDirectory);
 }
 
-export function getPostBySlug(slug: string, fields: string[] = []) {  
+export function getPostBySlug(slug: string, fields: string[] = []) {
   const realSlug = slug.replace(/\.mdx$/, "");
   const fullPath = join(postsDirectory, `${realSlug}.mdx`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
@@ -22,9 +23,19 @@ export function getPostBySlug(slug: string, fields: string[] = []) {
   const items: any = {};
 
   function processImages(content: string) {
-    // You can modify this function to handle image processing
-    // For example, replace image paths with actual HTML image tags
-    return content.replace(/!\[.*?\]\((.*?)\)/g, '<img src="$1" alt="" />');
+    // Process markdown images and apply getImgPath to image paths
+    // Keep markdown format but update paths - markdownToHtml will convert to HTML
+    return content.replace(
+      /!\[([^\]]*)\]\(([^)]+)\)/g,
+      (match, altText, imagePath) => {
+        // If imagePath starts with /images, apply getImgPath
+        if (imagePath.startsWith("/images")) {
+          const processedPath = getImgPath(imagePath);
+          return `![${altText}](${processedPath})`;
+        }
+        return match;
+      }
+    );
   }
 
   // Ensure only the minimal needed data is exposed
@@ -38,12 +49,21 @@ export function getPostBySlug(slug: string, fields: string[] = []) {
     }
 
     if (field === "metadata") {
-      // Include metadata, including the image information
-      items[field] = { ...data, coverImage: data.coverImage || null };
+      // Include metadata, including the image information with getImgPath applied
+      items[field] = {
+        ...data,
+        coverImage: data.coverImage ? getImgPath(data.coverImage) : null,
+        authorImage: data.authorImage ? getImgPath(data.authorImage) : null,
+      };
     }
 
     if (typeof data[field] !== "undefined") {
-      items[field] = data[field];
+      // Apply getImgPath to image-related fields
+      if (field === "coverImage" || field === "authorImage") {
+        items[field] = data[field] ? getImgPath(data[field]) : data[field];
+      } else {
+        items[field] = data[field];
+      }
     }
   });
 

@@ -1,17 +1,16 @@
+'use client'
+
 import React from 'react'
 import Link from 'next/link'
 import { Icon } from '@iconify/react'
 import BlogCard from './blogCard'
-import { getAllPosts } from '@/utils/markdown'
+import { Blog } from '@/types/blog'
 
-const Blog: React.FC = () => {
-  const posts = getAllPosts([
-    'title',
-    'date',
-    'excerpt',
-    'coverImage',
-    'slug',
-  ]).slice(0, 3)
+interface BlogProps {
+  posts: Blog[]
+}
+
+const Blog: React.FC<BlogProps> = ({ posts }) => {
 
   return (
     <section
@@ -31,7 +30,8 @@ const Blog: React.FC = () => {
             className='flex items-center gap-3 text-base text-secondary dark:text-white dark:hover:text-primary font-medium hover:text-primary sm:pb-0 pb-3'
             data-aos='fade-left'
             data-aos-delay='200'
-            data-aos-duration='1000'>
+            data-aos-duration='1000'
+            onClick={(e) => e.preventDefault()}>
             View More
             <span>
               <Icon icon='solar:arrow-right-outline' width='30' height='30' />
