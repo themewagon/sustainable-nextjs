@@ -4,7 +4,7 @@ import React from 'react'
 import Link from 'next/link'
 import { Icon } from '@iconify/react'
 import BlogCard from './blogCard'
-import { Blog } from '@/types/blog'
+import type { Blog } from '@/types/blog'
 
 interface BlogProps {
   posts: Blog[]
